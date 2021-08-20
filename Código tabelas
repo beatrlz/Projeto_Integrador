@@ -1,0 +1,36 @@
+CREATE TABLE `Categoria` (
+	`id` bigint NOT NULL AUTO_INCREMENT,
+	`C1` varchar(255) NOT NULL,
+	`C2` varchar(255) NOT NULL,
+	`C3` varchar(255) NOT NULL,
+	`C4` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Produtos` (
+	`id` bigint NOT NULL AUTO_INCREMENT,
+	`P1` varchar(255) NOT NULL,
+	`P2` varchar(255) NOT NULL,
+	`P3` varchar(255) NOT NULL,
+	`P4` varchar(255) NOT NULL,
+	`Fk` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `Usuários` (
+	`id` bigint NOT NULL AUTO_INCREMENT,
+	`Nome` varchar(255) NOT NULL,
+	`Email` varchar(255) NOT NULL,
+	`Senha` varchar(5000) NOT NULL,
+	`Senha1` varchar(5000) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `Produtos` ADD CONSTRAINT `Produtos_fk0` FOREIGN KEY (`Fk`) REFERENCES `Categoria`(`id`);
+
+ALTER TABLE `Usuários` ADD CONSTRAINT `Usuários_fk0` FOREIGN KEY (`Senha1`) REFERENCES `Produtos`(`id`);
+
+
+
+
+
